@@ -1,0 +1,19 @@
+$red-accent: rgb(207, 0, 0);
+
+.title{
+  color: $red-accent;
+  cursor: pointer;
+}
+
+.nav-line{
+  width: 100%;
+  height: 2px;
+  background-color: $red-accent;
+}
+
+.add-password-button{
+  background-color: rgb(245, 245, 245);
+  color: $red-accent;
+  padding: 0 10px;
+  cursor: pointer;
+}

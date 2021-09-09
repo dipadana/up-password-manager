@@ -1,0 +1,22 @@
+$red-accent: rgb(207, 0, 0);
+$red-clicked: rgb(56, 21, 21);
+
+.search-bar{
+  width: 90%;
+  padding: 7px;
+  border: none;
+  border-bottom: 1px solid grey;
+}
+
+.search-btn{
+  border: none;
+  font-size: 18px;
+  width: 10%;
+  height: 40px;
+  background-color: grey;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  border-radius: 2px;
+}
