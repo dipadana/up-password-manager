@@ -39,19 +39,21 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.authorization = exports.authentication = void 0;
 var jwt_1 = require("../helpers/jwt");
 var password_1 = __importDefault(require("../models/password"));
-exports.authentication = function (req, res, next) {
+var authentication = function (req, res, next) {
     var access_token = req.headers.access_token;
     if (access_token) {
-        req.loggedUser = jwt_1.decodeToken(access_token);
+        req.loggedUser = (0, jwt_1.decodeToken)(access_token);
         next();
     }
     else {
         next({ status: 401, message: 'Invalid Authentication' });
     }
 };
-exports.authorization = function (req, res, next) { return __awaiter(void 0, void 0, void 0, function () {
+exports.authentication = authentication;
+var authorization = function (req, res, next) { return __awaiter(void 0, void 0, void 0, function () {
     var _id, UserId, data, err_1;
     return __generator(this, function (_a) {
         switch (_a.label) {
@@ -84,3 +86,4 @@ exports.authorization = function (req, res, next) { return __awaiter(void 0, voi
         }
     });
 }); };
+exports.authorization = authorization;

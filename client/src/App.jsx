@@ -1,42 +1,56 @@
-import React, { useEffect } from 'react';
-import { BrowserRouter as Router, Route, Switch, Redirect, useLocation } from 'react-router-dom'
-import { Provider, useDispatch, useSelector } from 'react-redux'
-import Store from './store'
-import Login from './containers/Login'
-import Home from './containers/Home'
-import Register from './containers/Register'
-import AddPassword from './containers/AddPassword/AddPassword'
-import EditPassword from './containers/AddPassword/EditPassword'
-import './App.scss';
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect,
+  useLocation,
+} from "react-router-dom";
+import { Provider, useDispatch, useSelector } from "react-redux";
+import Store from "./store";
+import Login from "./containers/Login";
+import Home from "./containers/Home";
+import Register from "./containers/Register";
+import AddPassword from "./containers/AddPassword/AddPassword";
+import EditPassword from "./containers/AddPassword/EditPassword";
+import "./App.scss";
 
-function PrivateRouteToHome (props) {
-  const dispatch = useDispatch()
-  const loginStatus = useSelector(state => state.login.loginStatus)
-  const location = useLocation()
-  if(localStorage.getItem('access_token')){
-    dispatch({ type: 'CHANGE_LOGIN_STATUS', payload:true })
+function PrivateRouteToHome(props) {
+  const dispatch = useDispatch();
+  const loginStatus = useSelector((state) => state.login.loginStatus);
+  const location = useLocation();
+  if (localStorage.getItem("access_token")) {
+    dispatch({ type: "CHANGE_LOGIN_STATUS", payload: true });
   }
-  return(
-    loginStatus ? <Home/> : <Redirect to={{
-      pathname: '/login',
-      state: { from:location.pathname }
-    }} />
-  )
+  return loginStatus ? (
+    <Home />
+  ) : (
+    <Redirect
+      to={{
+        pathname: "/login",
+        state: { from: location.pathname },
+      }}
+    />
+  );
 }
 
-function PrivateRouteToLogin (props) {
-  const loginStatus = useSelector(state => state.login.loginStatus)
-  const location = useLocation()
-  const dispatch = useDispatch()
-  if(localStorage.getItem('access_token')){
-    dispatch({ type: 'CHANGE_LOGIN_STATUS', payload:true })
+function PrivateRouteToLogin(props) {
+  const loginStatus = useSelector((state) => state.login.loginStatus);
+  const location = useLocation();
+  const dispatch = useDispatch();
+  if (localStorage.getItem("access_token")) {
+    dispatch({ type: "CHANGE_LOGIN_STATUS", payload: true });
   }
-  return(
-    !loginStatus ? <Login/> : <Redirect to={{
-      pathname: '/',
-      state: { from:location.pathname }
-    }} />
-  )
+  return !loginStatus ? (
+    <Login />
+  ) : (
+    <Redirect
+      to={{
+        pathname: "/",
+        state: { from: location.pathname },
+      }}
+    />
+  );
 }
 
 function App() {
@@ -56,10 +70,10 @@ function App() {
           <Route path="/login">
             <PrivateRouteToLogin />
           </Route>
-          <Route exact path='/'>
+          <Route exact path="/">
             <PrivateRouteToHome />
           </Route>
-          <Route path='*'>
+          <Route path="*">
             <h1>404</h1>
           </Route>
         </Switch>

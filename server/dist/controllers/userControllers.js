@@ -57,18 +57,24 @@ var userController = /** @class */ (function () {
                     case 1:
                         data = _b.sent();
                         if (data) {
-                            if (bcrypt_1.decodeHash(password, data.password)) {
-                                payload = { username: data.username, email: data.email, _id: data._id };
-                                access_token = jwt_1.generateToken(payload);
-                                console.log(data);
-                                res.status(200).json({ access_token: access_token, username: data.username, email: data.email });
+                            if ((0, bcrypt_1.decodeHash)(password, data.password)) {
+                                payload = {
+                                    username: data.username,
+                                    email: data.email,
+                                    _id: data._id,
+                                };
+                                access_token = (0, jwt_1.generateToken)(payload);
+                                // console.log(data)
+                                res
+                                    .status(200)
+                                    .json({ access_token: access_token, username: data.username, email: data.email });
                             }
                             else {
-                                next({ status: 400, message: 'Invalid email/password' });
+                                next({ status: 400, message: "Invalid email/password" });
                             }
                         }
                         else {
-                            next({ status: 400, message: 'Email not registered' });
+                            next({ status: 400, message: "Email not registered" });
                         }
                         return [3 /*break*/, 3];
                     case 2:
@@ -87,7 +93,6 @@ var userController = /** @class */ (function () {
                 switch (_b.label) {
                     case 0:
                         _b.trys.push([0, 2, , 3]);
-                        console.log(req.body.email);
                         _a = req.body, username = _a.username, email = _a.email, password = _a.password;
                         return [4 /*yield*/, user_1.default.create({ username: username, email: email, password: password })];
                     case 1:

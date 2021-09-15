@@ -51,7 +51,7 @@ var passwordController = /** @class */ (function () {
                     case 0:
                         _a.trys.push([0, 2, , 3]);
                         _id = req.loggedUser._id;
-                        return [4 /*yield*/, password_1.default.find({ UserId: _id }).populate('UserId')];
+                        return [4 /*yield*/, password_1.default.find({ UserId: _id }).populate("UserId")];
                     case 1:
                         data = _a.sent();
                         res.status(200).json(data);
@@ -72,16 +72,15 @@ var passwordController = /** @class */ (function () {
                 switch (_a.label) {
                     case 0:
                         _a.trys.push([0, 2, , 3]);
-                        _id = req.params // password Id
-                        ._id;
-                        return [4 /*yield*/, password_1.default.findOne({ _id: _id }).populate('UserId')];
+                        _id = req.params._id;
+                        return [4 /*yield*/, password_1.default.findOne({ _id: _id }).populate("UserId")];
                     case 1:
                         data = _a.sent();
                         if (data) {
                             res.status(200).json(data);
                         }
                         else {
-                            next({ status: 404, message: 'Password data not found' });
+                            next({ status: 404, message: "Password data not found" });
                         }
                         return [3 /*break*/, 3];
                     case 2:
@@ -101,9 +100,13 @@ var passwordController = /** @class */ (function () {
                     case 0:
                         _b.trys.push([0, 2, , 3]);
                         _id = req.loggedUser._id;
-                        console.log(req.loggedUser, "<<<<<<<<<<<<<<<<");
                         _a = req.body, passwordData = _a.passwordData, nameData = _a.nameData, urlData = _a.urlData;
-                        return [4 /*yield*/, password_1.default.create({ UserId: _id, passwordData: passwordData, nameData: nameData, urlData: urlData })];
+                        return [4 /*yield*/, password_1.default.create({
+                                UserId: _id,
+                                passwordData: passwordData,
+                                nameData: nameData,
+                                urlData: urlData,
+                            })];
                     case 1:
                         data = _b.sent();
                         res.status(200).json(data);
@@ -125,8 +128,7 @@ var passwordController = /** @class */ (function () {
                     case 0:
                         _b.trys.push([0, 2, , 3]);
                         UserId = req.loggedUser._id;
-                        _id = req.params // password id
-                        ._id;
+                        _id = req.params._id;
                         _a = req.body, passwordData = _a.passwordData, nameData = _a.nameData, urlData = _a.urlData;
                         return [4 /*yield*/, password_1.default.findOneAndUpdate({ _id: _id }, { passwordData: passwordData, nameData: nameData, urlData: urlData }, { new: true })];
                     case 1:
@@ -135,7 +137,7 @@ var passwordController = /** @class */ (function () {
                             res.status(200).json(data);
                         }
                         else {
-                            next({ status: 404, message: 'User not found' });
+                            next({ status: 404, message: "User not found" });
                         }
                         return [3 /*break*/, 3];
                     case 2:
@@ -154,8 +156,7 @@ var passwordController = /** @class */ (function () {
                 switch (_a.label) {
                     case 0:
                         _a.trys.push([0, 2, , 3]);
-                        _id = req.params // password id
-                        ._id;
+                        _id = req.params._id;
                         return [4 /*yield*/, password_1.default.deleteOne({ _id: _id })];
                     case 1:
                         data = _a.sent();
