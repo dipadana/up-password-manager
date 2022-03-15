@@ -39,10 +39,11 @@ export default function Card(props) {
               <span>
                 <img
                   data-testid="card-edit-btn"
-                  src="https://image.flaticon.com/icons/svg/636/636823.svg"
-                  width="26"
-                  height="26"
+                  src="https://cdn-icons-png.flaticon.com/512/1159/1159633.png"
+                  width="22"
+                  height="22"
                   alt="edit button"
+                  style={{ marginTop: 2, marginRight: 2 }}
                 />
               </span>
             </div>
