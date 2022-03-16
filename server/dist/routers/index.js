@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var express_1 = require("express");
 var userRouter_1 = __importDefault(require("./userRouter"));
 var passwordRouter_1 = __importDefault(require("./passwordRouter"));
-var router = express_1.Router();
+var router = (0, express_1.Router)();
 router.get('/', function (req, res, next) {
     res.status(200).json({ message: 'Server Connected' });
 });

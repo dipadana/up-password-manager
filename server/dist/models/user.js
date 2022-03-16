@@ -24,8 +24,8 @@ userSchema.path('email').validate(function (value) {
     });
 }, 'Email user is already registered!');
 userSchema.pre('save', function (next) {
-    this.password = bcrypt_1.generateHash(this.password);
+    this.password = (0, bcrypt_1.generateHash)(this.password);
     next();
 });
-var User = mongoose_1.model('User', userSchema);
+var User = (0, mongoose_1.model)('User', userSchema);
 exports.default = User;

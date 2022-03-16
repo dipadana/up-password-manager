@@ -5,7 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "@types/node": "^12.12.14",
-    "axios": "^0.19.0",
+    "axios": "^0.21.4",
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "express": "^4.17.1",
@@ -21,13 +21,13 @@
     "@types/mongoose": "^5.5.32",
     "@types/morgan": "^1.7.37",
     "dotenv": "^8.2.0",
-    "ts-node-dev": "^1.0.0-pre.44",
+    "ts-node-dev": "^1.1.8",
     "typescript": "^3.7.2"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "tsc": "tsc",
-    "dev": "NODE_ENV=development ts-node-dev --respawn --transpileOnly ./app.ts",
+    "dev": "NODE_ENV=development npx ts-node-dev ./app.ts",
     "clean": "rm -rf dist",
     "compile": "npm run clean && tsc",
     "prod": "tsc && node dist/bin/http.js"

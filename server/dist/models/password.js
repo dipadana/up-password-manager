@@ -21,5 +21,5 @@ var passwordSchema = new mongoose_1.Schema({
         required: 'URL required'
     }
 }, { timestamps: true, versionKey: false });
-var Password = mongoose_1.model('Password', passwordSchema);
+var Password = (0, mongoose_1.model)('Password', passwordSchema);
 exports.default = Password;
